@@ -45,6 +45,8 @@ const ContatoItem =(props) =>{
             />
                 <Text style={estilos.nomeContato}>Nome: {props.nomeContato}</Text>
                 <Text style={estilos.numero}>Telefone: {props.numeroContato}</Text>
+                <Text style={estilos.numero}>Id: {props.idContato}</Text>
+                    {confirmacaoText}
                 
             </Cartao>
         </TouchableOpacity> 

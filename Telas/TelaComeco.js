@@ -1,17 +1,24 @@
-import React,{useState} from 'react';
 import { StyleSheet, Text, View, FlatList, Platform} from 'react-native';
 import ContatoItem from '../components/ContatoItem';
 import Medidas from '../Medidas/Medidas';
 import Cores from '../Cores/Cores';
 import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 import BotaoCabecalho from '../components/BotaoCabecalho';
-import {useSelector} from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
+import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import * as contatosActions from '../store/contatos-actions';
+
 
 
 const TelaComeco =(props)=>{
   const contatos = useSelector(estado=>estado.contatos.contatos);
-  
+    const dispatch = useDispatch();
+
+      useEffect(() => {
+        dispatch(contatosActions.listarContatos())
+    }, [dispatch]);
+ 
   const removerContato = (keyASerRemovida)=>{
     setContatos(contatos=>{
         return contatos.filter((contato)=>{
